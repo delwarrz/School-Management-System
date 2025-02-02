@@ -1,0 +1,16 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}
+    Edit Student
+{% endblock %}
+
+{% block content %}
+    <h1>Edit Student</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save changes</button>
+    </form>
+    <a href="{% url 'home' %}">Back to Home</a>
+{% endblock %}
+

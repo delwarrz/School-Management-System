@@ -1,0 +1,16 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}
+    Add New Student
+{% endblock %}
+
+{% block content %}
+<h1 class="text-2xl font-bold">Add New Student</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded">Add Student</button>
+</form>
+   
+{% endblock %}

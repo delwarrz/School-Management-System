@@ -1,0 +1,37 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}
+Course
+{% endblock %}
+
+{% block content %}
+<h1 class="text-2xl font-bold">Course Management</h1>
+
+<h2 class="text-xl font-bold mt-4">Add New Course</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded">Add Course</button>
+</form>
+
+<h2 class="text-xl font-bold mt-4">Available Courses</h2>
+<table class="min-w-full bg-white">
+    <thead>
+        <tr>
+            <th class="py-2 px-4 border-b-2 border-gray-300 text-left leading-tight">Course Name</th>
+            <th class="py-2 px-4 border-b-2 border-gray-300 text-left leading-tight">Code</th>
+            <th class="py-2 px-4 border-b-2 border-gray-300 text-left leading-tight">Created At</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for course in courses %}
+        <tr>
+            <td class="py-2 px-4 border-b border-gray-300">{{ course.name }}</td>
+            <td class="py-2 px-4 border-b border-gray-300">{{ course.code }}</td>
+            <td class="py-2 px-4 border-b border-gray-300">{{ course.created_at }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+   
+{% endblock %}
